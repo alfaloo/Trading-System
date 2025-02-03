@@ -8,17 +8,23 @@ bool ClientHandler::handleClient(int clientSocket, sockaddr_in clientAddress, in
     printServer("Client ", id, " connected: ", inet_ntoa(clientAddress.sin_addr), ":", ntohs(clientAddress.sin_port));
 
     char buffer[BUFFER_SIZE];
-    memset(buffer, 0, BUFFER_SIZE);
 
     while(true) {
+        memset(buffer, 0, BUFFER_SIZE);
         ssize_t bytesRecieved = recv(clientSocket, buffer, BUFFER_SIZE, 0);
 
         if (bytesRecieved == -1) {
             printServer("Error receiving data from client ", id);
+            break;
         } else if (bytesRecieved == 0) {
             printServer("Client ", id, " disconnected");
+            break;
         } else {
-            printServer("Recieved from client ", id , ": ", buffer);
+            std::istringstream iss(buffer, bytesRecieved);
+            std::string message;
+            while (std::getline(iss, message, '\n')) {
+                printServer("Recieved from client ", id , ": ", message);
+            }
         }
     }
 
@@ -37,7 +43,7 @@ bool ClientHandler::initiate() {
     serverAddress.sin_addr.s_addr = INADDR_ANY;
     serverAddress.sin_port = htons(PORT);
 
-    if (bind(serverSocket, (struct sockaddr*) &serverAddress, sizeof(serverAddress)) -1) {
+    if (bind(serverSocket, (struct sockaddr*) &serverAddress, sizeof(serverAddress)) == -1) {
         printError("ClientHandler failed to bind socket");
         close(serverSocket);
         return false;

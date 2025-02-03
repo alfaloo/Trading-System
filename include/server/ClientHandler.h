@@ -7,7 +7,6 @@
 
 #include "../common/Global.h"
 
-
 class ClientHandler {
 private:
     static bool handleClient(int clientSocket, sockaddr_in clientAddress, int id);
