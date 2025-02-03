@@ -3,4 +3,4 @@ project(Trading_System)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Trading_System main.cpp)
+add_executable(Trading_System src/server/ExchangeServer.cpp)
