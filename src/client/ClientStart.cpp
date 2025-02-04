@@ -7,4 +7,6 @@
 int main() {
     TradingClient tradingClient;
     tradingClient.initiate();
+
+    return 0;
 }

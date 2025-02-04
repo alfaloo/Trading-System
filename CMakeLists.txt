@@ -7,5 +7,6 @@ file(GLOB_RECURSE SERVER "src/server/*.cpp")
 file(GLOB_RECURSE CLIENT "src/client/*.cpp")
 file(GLOB_RECURSE COMMON "src/common/*.cpp")
 
-add_executable(startServer src/server/ServerStart.cpp ${SERVER} ${COMMON})
-add_executable(startClient src/client/ClientStart.cpp ${CLIENT} ${COMMON})
+add_executable(startServer ${SERVER} ${COMMON})
+add_executable(startClient ${CLIENT} ${COMMON})
+add_executable(test tests/test.cpp src/server/BoundedBuffer.cpp ${COMMON})

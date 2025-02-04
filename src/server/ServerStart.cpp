@@ -10,6 +10,8 @@
 int main() {
     ClientHandler clientHandler;
     clientHandler.initiate();
+
+    return 0;
 }
 
 #endif //TRADING_SYSTEM_SERVERSTART_H

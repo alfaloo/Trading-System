@@ -29,6 +29,7 @@ bool ClientHandler::handleClient(int clientSocket, sockaddr_in clientAddress, in
     }
 
     close(clientSocket);
+    return true;
 }
 
 bool ClientHandler::initiate() {
