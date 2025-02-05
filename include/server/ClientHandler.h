@@ -5,7 +5,13 @@
 #ifndef TRADING_SYSTEM_CLIENTHANDLER_H
 #define TRADING_SYSTEM_CLIENTHANDLER_H
 
+#include <arpa/inet.h>
+#include <sstream>
+#include <thread>
+#include <unistd.h>
+
 #include "../common/Global.h"
+#include "../common/Utility.h"
 
 class ClientHandler {
 private:

@@ -2,6 +2,9 @@
 // Created by Zhiyang Lu on 04/02/2025.
 //
 
+#include <chrono>
+#include <thread>
+
 #include "../include/server/BoundedBuffer.h"
 
 void produceTest(BoundedBuffer<int>& boundedBuffer, int val, int count) {

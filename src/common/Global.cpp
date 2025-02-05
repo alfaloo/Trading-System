@@ -5,6 +5,3 @@
 #include "../../include/common/Global.h"
 
 const char* SERVER_IP = "127.0.0.1";
-
-std::mutex coutMutex;
-std::mutex cerrMutex;

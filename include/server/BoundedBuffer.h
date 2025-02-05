@@ -5,6 +5,10 @@
 #ifndef TRADING_SYSTEM_BOUNDEDBUFFER_H
 #define TRADING_SYSTEM_BOUNDEDBUFFER_H
 
+#include <condition_variable>
+#include <iostream>
+#include <mutex>
+
 #include "../common/Global.h"
 
 template <typename Item>

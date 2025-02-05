@@ -3,6 +3,9 @@ project(Trading_System)
 
 set(CMAKE_CXX_STANDARD 20)
 
+find_package(Boost REQUIRED)
+include_directories(${Boost_INCLUDE_DIRS})
+
 file(GLOB_RECURSE SERVER "src/server/*.cpp")
 file(GLOB_RECURSE CLIENT "src/client/*.cpp")
 file(GLOB_RECURSE COMMON "src/common/*.cpp")

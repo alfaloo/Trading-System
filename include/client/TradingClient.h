@@ -5,7 +5,12 @@
 #ifndef TRADING_SYSTEM_TRADINGCLIENT_H
 #define TRADING_SYSTEM_TRADINGCLIENT_H
 
+#include <arpa/inet.h>
+#include <thread>
+#include <unistd.h>
+
 #include "../common/Global.h"
+#include "../common/Utility.h"
 
 class TradingClient {
 private:
