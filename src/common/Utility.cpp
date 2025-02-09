@@ -4,5 +4,5 @@
 
 #include "../../include/common/Utility.h"
 
-std::mutex coutMutex;
-std::mutex cerrMutex;
+std::mutex mtxCout;
+std::mutex mtxCerr;

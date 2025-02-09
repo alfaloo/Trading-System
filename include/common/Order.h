@@ -10,6 +10,7 @@
 enum class Side {
     Buy,
     Sell,
+    Cancel,
 };
 
 struct Order {
@@ -17,18 +18,23 @@ struct Order {
     const std::string ticker;
     const Side side;
     const double price;
-    const double quantity;
+    double quantity;
+    const int clientSocket;
+    bool cancelled;
 
     Order(const std::string& uuid,
           const std::string& ticker,
           const Side side,
           const double price,
-          const double quantity) :
+          const double quantity,
+          const int clientSocket) :
           uuid(uuid),
           ticker(ticker),
           side(side),
           price(price),
-          quantity(quantity) {}
+          quantity(quantity),
+          clientSocket(clientSocket),
+          cancelled(false) {}
 };
 
 

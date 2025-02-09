@@ -7,6 +7,8 @@
 
 #include <string>
 
+#include "Order.h"
+
 enum class Status {
     Completed,
     Pending,
@@ -15,20 +17,39 @@ enum class Status {
 struct Trade {
     const std::string uuid;
     const std::string ticker;
-    const Status status;
+    const Side side;
     const double price;
     const double quantity;
+    const Status status;
 
     Trade(const std::string& uuid,
           const std::string& ticker,
-          const Status status,
+          const Side side,
           const double price,
-          const double quantity) :
+          const double quantity,
+          const Status status) :
             uuid(uuid),
             ticker(ticker),
-            status(status),
+            side(side),
             price(price),
-            quantity(quantity) {}
+            quantity(quantity),
+            status(status) {}
+
+    Trade(Order order, Status status) :
+            uuid(order.uuid),
+            ticker(order.ticker),
+            side(order.side),
+            price(order.price),
+            quantity(order.quantity),
+            status(status) {}
+
+    Trade(std::shared_ptr<Order> order, Status status) :
+            uuid(order->uuid),
+            ticker(order->ticker),
+            side(order->side),
+            price(order->price),
+            quantity(order->quantity),
+            status(status) {}
 };
 
 #endif //TRADING_SYSTEM_TRADE_H
